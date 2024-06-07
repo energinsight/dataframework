@@ -1,5 +1,5 @@
 import requests
-from.loadertypes import DataLoader
+from.loaderAPI import DataLoader
 
 class JaoDataLoader(DataLoader):
     def __init__(self,start,end):

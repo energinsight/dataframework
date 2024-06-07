@@ -1,4 +1,4 @@
-from.loadertypes import DataLoader
+from.loaderAPI import DataLoader
 from entsoe import EntsoePandasClient
 import os
 import pandas as pd
