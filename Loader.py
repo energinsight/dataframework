@@ -8,9 +8,9 @@ start = pd.Timestamp('20240603', tz='Europe/Brussels')
 end = pd.Timestamp('20240604', tz='Europe/Brussels')
 
 
-entsopr = EntsoeSpotPrice()
-entsoLoad = EntsoeLoad()
-entsoLoadfcs = EntsoeLoadForecast()
+entsopr = EntsoeSpotPrice(start, end)
+entsoLoad = EntsoeLoad(start, end)
+entsoLoadfcs = EntsoeLoadForecast(start, end)
 
 jao = JaoID2FinalNTC(start, end)
 
