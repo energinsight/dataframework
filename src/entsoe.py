@@ -20,9 +20,7 @@ class EntsoeSpotPrice(ENTSOEDataLoader):
     def __init__(self, start, end):
         super().__init__(start, end)
 
-    def load_data(self, params):
-
-        country_code = params['country_code'] 
+    def load_data(self, country_code):
 
         # methods that return Pandas Series
         data = self.client.query_day_ahead_prices(country_code, start=self.start, end=self.end)
@@ -33,9 +31,7 @@ class EntsoeLoad(ENTSOEDataLoader):
     def __init__(self, start, end):
         super().__init__(start, end)
 
-    def load_data(self, params):
-        
-        country_code = params['country_code'] 
+    def load_data(self, country_code):
 
         # methods that return Pandas Series
         data = self.client.query_load(country_code, start=self.start, end=self.end)
@@ -48,9 +44,7 @@ class EntsoeLoadForecast(ENTSOEDataLoader):
     def __init__(self, start, end):
         super().__init__(start, end)
 
-    def load_data(self, params):
-        
-        country_code = params['country_code'] 
+    def load_data(self, country_code):
 
         # methods that return Pandas Series
         data = self.client.query_load_forecast(country_code, start=self.start, end=self.end)
@@ -61,11 +55,33 @@ class EntsoeGenerationForecast(ENTSOEDataLoader):
     def __init__(self, start, end):
         super().__init__(start, end)
 
-    def load_data(self, params):
-        
-        country_code = params['country_code'] 
+    def load_data(self, country_code):
 
         # methods that return Pandas Series
         data = self.client.query_generation_forecast(country_code, start=self.start, end=self.end)
+        
+        return data
+    
+class EntsoeWindForecast(ENTSOEDataLoader):
+    def __init__(self, start, end):
+        super().__init__(start, end)
+
+    def load_data(self, country_code):
+
+        # methods that return Pandas Series
+        data = self.client.query_wind_and_solar_forecast(country_code, start=self.start, end=self.end)
+        
+        return data
+    
+class EntsoescheduleExchange(ENTSOEDataLoader):
+    def __init__(self, start, end):
+        super().__init__(start, end)
+
+    def load_data(self, country_code_from_to):
+        
+        # methods that return Pandas Series
+        country_code_from = country_code_from_to[0]
+        country_code_to = country_code_from_to[1]
+        data = self.client.query_scheduled_exchanges(country_code_from, country_code_to, start=self.start, end=self.end, dayahead=True)
         
         return data
