@@ -10,7 +10,7 @@ class JaoDataLoader(DataLoader):
 
 class JaoID2FinalNTC(JaoDataLoader):
     
-    def load_data(self, params):
+    def load_data(self):
         params = {'fromUtc': self.start, 'toUtc': self.end}
         url = 'https://publicationtool.jao.eu/coreID/api/data/ID2_intradayNtc'
         data = requests.get(url, params=params)

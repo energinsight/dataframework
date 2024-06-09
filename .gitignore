@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+src/__pycache__/jao.cpython-310.pyc
+src/__pycache__/jao.cpython-310.pyc
+src/__pycache__/utils.cpython-310.pyc
