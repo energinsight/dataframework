@@ -19,7 +19,6 @@ jaoID2FinalNTC = JaoID2FinalNTC(start, end)
 
 id2finalNTC = jaoID2FinalNTC.load_data()
 
-
 SpotPrice = createDataFrame(entsopr, ['DE_LU', 'FR'])
 load = createDataFrame(entsoLoad, ['DE_LU', 'FR'])
 LoadForecast = createDataFrame(entsoLoadfcs, ['DE_LU', 'FR'])

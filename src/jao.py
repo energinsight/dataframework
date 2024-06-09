@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 from.loaderAPI import DataLoader
 
 class JaoDataLoader(DataLoader):
@@ -14,4 +15,19 @@ class JaoID2FinalNTC(JaoDataLoader):
         params = {'fromUtc': self.start, 'toUtc': self.end}
         url = 'https://publicationtool.jao.eu/coreID/api/data/ID2_intradayNtc'
         data = requests.get(url, params=params)
-        return data
+        data1 = pd.DataFrame(data.json())
+        aa = data1['data']
+
+        # Convert each dictionary in aa into a DataFrame
+        dfs = [pd.DataFrame([dict_], columns=dict_.keys()) for dict_ in aa]
+
+        # Concatenate all DataFrames
+        df = pd.concat(dfs, ignore_index=True)
+
+        # Convert the 'dateTimeUtc' column to datetime
+        df['dateTimeUtc'] = pd.to_datetime(df['dateTimeUtc'])
+
+        # Set 'dateTimeUtc' as the index
+        df.set_index('dateTimeUtc', inplace=True)
+
+        return df
