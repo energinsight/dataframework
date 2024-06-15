@@ -8,14 +8,11 @@ import streamlit as st
 from plotly import express as px
 
 from src.utils import createDataFrame
+from src.UIutils import load_data
 
-
-@st.cache_data
-def load_data(_Loaderobj):
-    # Replace this with the code to load your data
-    return createDataFrame(_Loaderobj, ['DE_LU', 'FR', 'ES', 'NO_1'])
 
 def demand_page():
+    figures = []
     #start = pd.Timestamp('20240605', tz='Europe/Brussels')
     start = pd.Timestamp('2024-05-01 00:00:00', tz='Europe/Brussels')
     #end = pd.Timestamp('20240606', tz='Europe/Brussels')
@@ -25,8 +22,9 @@ def demand_page():
     Demand = EntsoeLoad(start, end)
     
     # Load the data
-    Dem = load_data(Demand)
-    #SpotPrice = createDataFrame(entsopr, ['DE_LU', 'FR', 'ES', 'NO_1'])
+    Dem = load_data(Demand, ['DE_LU', 'FR', 'ES', 'NO_1'])
+    Dem_monthly = Dem.resample('M').mean()
+
 
     st.title('Actual Load')
 
@@ -46,8 +44,15 @@ def demand_page():
 
     filtered_data = filtered_data.dropna()
     figpr = px.line(filtered_data, x=filtered_data.index, y=filtered_data.columns)
-    #figpr = create_plot(filtered_data)
-    st.plotly_chart(figpr)
+    
+    figures.append(figpr)
+    
+    # Create a plot for the monthly data
+    fig_monthly = px.line(Dem_monthly, x=Dem_monthly.index, y=Dem_monthly.columns)
+    figures.append(fig_monthly)
+    
+    for fig in figures:
+        st.plotly_chart(fig)
 
     st.button("Rerun")
 
