@@ -1,4 +1,6 @@
 import pandas as pd
+import plotly.graph_objects as go
+
 
 def load_data_from_source(loader, params: dict):
     data = loader.load_data(params)

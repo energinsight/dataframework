@@ -45,7 +45,7 @@ def Production_page():
     selected_date = Gen.index[selected_index]
     filtered_data = Gen[Gen.index >= selected_date]
 
-
+    filtered_data = filtered_data.dropna()
     figpr = px.line(filtered_data, x=filtered_data.index, y=filtered_data.columns)
     st.plotly_chart(figpr)
 
