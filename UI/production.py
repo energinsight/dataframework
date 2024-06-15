@@ -16,11 +16,7 @@ def load_data(_Loaderobj):
     # Replace this with the code to load your data
     return createDataFrame(_Loaderobj, ['DE_LU', 'FR', 'ES', 'NO_1'])
 
-def Production_page():
-    #start = pd.Timestamp('20240605', tz='Europe/Brussels')
-    start = pd.Timestamp('2024-06-01 00:00:00', tz='Europe/Brussels')
-    #end = pd.Timestamp('20240606', tz='Europe/Brussels')
-    end = pd.Timestamp('2024-06-09 23:00:00', tz='Europe/Brussels')
+def Production_page(start, end):
 
     # Code for page 1 goes here
     GenFCS = EntsoeGenerationForecast(start, end)

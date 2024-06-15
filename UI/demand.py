@@ -11,12 +11,9 @@ from src.utils import createDataFrame
 from src.UIutils import load_data
 
 
-def demand_page():
+def demand_page(start, end):
     figures = []
-    #start = pd.Timestamp('20240605', tz='Europe/Brussels')
-    start = pd.Timestamp('2024-05-01 00:00:00', tz='Europe/Brussels')
-    #end = pd.Timestamp('20240606', tz='Europe/Brussels')
-    end = pd.Timestamp('2024-06-09 23:00:00', tz='Europe/Brussels')
+    
 
     # Code for page 1 goes here
     Demand = EntsoeLoad(start, end)
