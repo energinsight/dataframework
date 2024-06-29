@@ -1,5 +1,4 @@
 import pandas as pd
-import streamlit as st
 from plotly import express as px
 
 from src.entsoe import *
@@ -26,7 +25,6 @@ jaoID2FinalNTC = JaoID2FinalNTC(start, end)
 DSfinalcomputation = JaoDAfinalcomputation(start, end)
 
 
-@st.cache_data
 def load_data():
     # Replace this with the code to load your data
     return createDataFrame(entsopr, ['DE_LU', 'FR', 'ES', 'NO_1'])
@@ -35,26 +33,4 @@ def load_data():
 # Load the data
 SpotPrice = load_data()
 
-
-# Display a header
-st.title('My Streamlit App')
-
-# Display a data table
-#st.write(SpotPrice)
-
-selected_index = st.slider(
-    'Select a date',
-    min_value=0,
-    max_value=len(SpotPrice.index) - 1,
-    value=0
-)
-
-# Filter the data based on the selected date
-selected_date = SpotPrice.index[selected_index]
-filtered_data = SpotPrice[SpotPrice.index >= selected_date]
-
-
-figpr = px.line(filtered_data, x=filtered_data.index, y=filtered_data.columns)
-st.plotly_chart(figpr)
-
-st.button("Rerun")
+a=2
