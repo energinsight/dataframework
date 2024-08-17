@@ -73,6 +73,17 @@ class EntsoeWindForecast(ENTSOEDataLoader):
         
         return data
     
+class EntsoeGen(ENTSOEDataLoader):
+    def __init__(self, start, end):
+        super().__init__(start, end)
+
+    def load_data(self, country_code):
+
+        # methods that return Pandas Series
+        data = self.client.query_generation(country_code, start=self.start, end=self.end, psr_type=None)
+
+        return data
+    
 class EntsoescheduleExchange(ENTSOEDataLoader):
     def __init__(self, start, end):
         super().__init__(start, end)
@@ -85,3 +96,24 @@ class EntsoescheduleExchange(ENTSOEDataLoader):
         data = self.client.query_scheduled_exchanges(country_code_from, country_code_to, start=self.start, end=self.end, dayahead=True)
         
         return data
+
+
+
+'''
+class EntsoeBalancingEnergyBid(ENTSOEDataLoader):
+    def __init__(self, start, end):
+        super().__init__(start, end)
+
+    def load_data(self, country_code):
+        params = {
+                        'DocumentType': 'A37',
+                        'ProcessType': 'A51',
+                        'connecting_Domain': country_code,
+                        'businessType': 'A96',
+                        'PeriodStart': self.start,
+                        'PeriodEnd': self.end
+                 }
+        response = self.client._base_request(params=params, start=self.start, end=self.end)
+
+        return response
+'''
