@@ -1,10 +1,10 @@
 import pandas as pd
 from plotly import express as px
 
-from src.entsoe import *
-from src.jao import *
-from src.netztransparenz import *
-from src.utils import createDataFrame
+from dataframework.entsoe import *
+from dataframework.jao import *
+from dataframework.netztransparenz import *
+from dataframework.utils import createDataFrame
 
 
 start = pd.Timestamp('2024-06-01 00:00:00', tz='Europe/Brussels')
