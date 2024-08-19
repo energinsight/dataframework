@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dataframework"
+version = "0.1.0"
+description = "A Python package for loading data from various data providers, with a primary focus on power-related sources."
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = ">=1.5.3"
+numpy = "^2.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
