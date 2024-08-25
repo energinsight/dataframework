@@ -18,7 +18,7 @@ class reBAP(netztransparenzDataLoader):
             
             # add your Client-ID and Client-secret from the API Client configuration GUI to
             # your environment variable first
-            IPNT_CLIENT_ID = os.environ.get('IPNT_CLIENT_ID')
+            IPNT_CLIENT_ID = os.environ.get('netztransparenz_CLIENT_ID')
             IPNT_CLIENT_SECRET = os.environ.get('netztransparenz_Client_Secret')
 
             ACCESS_TOKEN_URL = "https://identity.netztransparenz.de/users/connect/token"
