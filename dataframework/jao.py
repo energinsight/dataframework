@@ -30,7 +30,59 @@ class JaoDAfinalcomputation(JaoDataLoader):
     
             return df
         
+class JaoIDCCbfinalcomputation(JaoDataLoader):
+        
+        def load_data(self):
+            params =  {
+                "Presolved": True,
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
 
+            url = 'https://publicationtool.jao.eu/coreID/api/data/IDCCB_finalComputation'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+        
+class IDCCB_MaxNetPos(JaoDataLoader):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/coreID/api/data/IDCCB_maxNetPos'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+      
+class IDCCB_CGM(JaoDataLoader):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/coreID/api/data/IDCCB_CGM'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+ 
         
 
 class JaoID2FinalNTC(JaoDataLoader):
