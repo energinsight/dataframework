@@ -72,11 +72,12 @@ class IDCCB_initialcomputation(Jao_coreID):
         
         def load_data(self):
             params =  {
-                "Filter": {},
-                "Presolved": True,
-                "FromUtc": self.start.isoformat(),
-                "ToUtc": self.end.isoformat()
-                }
+            "Filter": json.dumps({"Presolved": True}),
+            "Skip": 0,
+            "Take": 1000,
+            "FromUtc": self.start.isoformat(),
+            "ToUtc": self.end.isoformat()
+            }
 
             url = 'https://publicationtool.jao.eu/coreID/api/data/IDCCB_initialComputation'
             data = requests.get(url, params=params)
@@ -113,10 +114,12 @@ class IDCCB_finalcomputation(Jao_coreID):
         
         def load_data(self):
             params =  {
-                "Presolved": True,
-                "FromUtc": self.start.isoformat(),
-                "ToUtc": self.end.isoformat()
-                }
+            "Filter": json.dumps({"Presolved": True}),
+            "Skip": 0,
+            "Take": 1000,
+            "FromUtc": self.start.isoformat(),
+            "ToUtc": self.end.isoformat()
+            }
 
             url = 'https://publicationtool.jao.eu/coreID/api/data/IDCCB_finalComputation'
             data = requests.get(url, params=params)

@@ -11,7 +11,7 @@ start = pd.Timestamp('2024-08-01 00:00:00', tz='Europe/Brussels')
 end = pd.Timestamp('2024-08-01 03:00:00', tz='Europe/Brussels')
 
 
-finalatcforsidc = IDCCB_finalatcforsidc(start, end)
+finalatcforsidc = IDCCB_initialcomputation(start, end)
 rp = finalatcforsidc.load_data()
 
 reBAP1 = reBAP(start, end)
