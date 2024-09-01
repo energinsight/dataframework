@@ -90,7 +90,7 @@ class IDCCB_initialcomputation(Jao_coreID):
 
 
 
-class IDCCB_validationReductions(Jao_coreID):
+class IDCCB_validationreductions(Jao_coreID):
         def load_data(self):
             params =  {
                 "Filter": {},
