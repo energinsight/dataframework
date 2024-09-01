@@ -79,6 +79,205 @@ class Jaocore_allocationconstraint(Jao_core):
             return df
         
 
+class Jaocore_d2cf(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/d2CF'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+        
+
+class Jaocore_refprog(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/refprog'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+        
+class Jaocore_referencenetposition(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/referenceNetPosition'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+        
+
+class Jaocore_atconcoreexternalborders(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/atc'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+class Jaocore_shadowauctionatc(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/shadowAuctionAtc'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+
+class Jaocore_shadowprices(Jao_core):
+        
+        def load_data(self):
+            params =  {
+            "Filter": json.dumps({"Presolved": True}),
+            "Skip": 0,
+            "Take": 1000,
+            "FromUtc": self.start.isoformat(),
+            "ToUtc": self.end.isoformat()
+            }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/shadowPrices'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+
+
+class Jaocore_congestionincome(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/congestionIncome'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+
+class Jaocore_scheduledexchanges(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/scheduledExchanges'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
+class Jaocore_netposition(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/netPos'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+        
+
+class Jaocore_pricespread(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/priceSpread'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+        
+
+class Jaocore_alphafactor(Jao_core):
+        
+        def load_data(self):
+            params =  {
+                "FromUtc": self.start.isoformat(),
+                "ToUtc": self.end.isoformat()
+                }
+
+            url = 'https://publicationtool.jao.eu/core/api/data/alphaFactor'
+            data = requests.get(url, params=params)
+
+            json_data = data.json()
+            df = pd.DataFrame(json_data['data'])
+            df.set_index('dateTimeUtc', inplace=True)
+    
+            return df
+
 
 class Jaocore_remedialactionpreventive(Jao_core):
         
