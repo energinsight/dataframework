@@ -172,7 +172,7 @@ class Jaocore_shadowprices(Jao_core):
         
         def load_data(self):
             params =  {
-            "Filter": json.dumps({"Presolved": True}),
+            "Filter": {},
             "Skip": 0,
             "Take": 1000,
             "FromUtc": self.start.isoformat(),
