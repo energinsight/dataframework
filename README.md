@@ -13,6 +13,7 @@
             background-color: #f4f4f4;
             padding: 10px;
             border-radius: 5px;
+            overflow-x: auto;
         }
         code {
             background-color: #f4f4f4;
