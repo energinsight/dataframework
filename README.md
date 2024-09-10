@@ -8,8 +8,6 @@ wget https://github.com/energinsight/dataframework/tree/main/requirement.txt
 
 <!-- git clone https://github.com/energinsight/dataframework.git -->
 
-Download the requirement.txt and put it in directory.
-
 python3 -m venv .venv
 
 source .venv/bin/activate
@@ -25,7 +23,7 @@ If you only want to install the dataframework package, then run "pip install git
 ## Windows
 cd /to/target/directory
 
-git clone https://github.com/energinsight/dataframework.git
+curl -O https://github.com/energinsight/dataframework/tree/main/requirement.txt
 
 python -m venv venv
 
