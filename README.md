@@ -1,6 +1,6 @@
 # intsalation
 
-pip install git+https://github.com/energinsight/dataframework.git
+% pip install git+https://github.com/energinsight/dataframework.git
 
 
 ## Linux
