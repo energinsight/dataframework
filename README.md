@@ -25,6 +25,7 @@ python -m venv venv
 
 venv\Scripts\activate
 
+pip install -r requirement.txt
 
 ## Note: the API keys need to be saved as env variables.
 
