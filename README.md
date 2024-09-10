@@ -33,3 +33,12 @@ curl -o Loader.py https://raw.githubusercontent.com/energinsight/dataframework/m
 
 ## Note: the API keys need to be saved as env variables.
 
+### Linux:
+Add the following lines (with your API keys) to the end of .venv/bin/activate file:
+
+export ENTSOE_API_KEY='Your-API-Key'
+export netztransparenz_CLIENT_ID='Your-API-Key'
+export netztransparenz_Client_Secret='Your-API-Key'
+
+
+
