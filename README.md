@@ -8,9 +8,9 @@ curl -o requirement.txt https://raw.githubusercontent.com/energinsight/dataframe
 
 <!-- git clone https://github.com/energinsight/dataframework.git -->
 
-python3 -m venv .venv
+python3 -m venv .myenv
 
-source .venv/bin/activate
+source .myenv/bin/activate
 
 python3 -m pip install -r requirement.txt
 
@@ -21,9 +21,9 @@ cd /to/target/directory
 
 curl -o requirement.txt https://raw.githubusercontent.com/energinsight/dataframework/main/requirement.txt
 
-python -m venv venv
+python -m venv myenv
 
-venv\Scripts\activate
+myenv\Scripts\activate
 
 pip install -r requirement.txt
 
