@@ -4,7 +4,7 @@
 ## Linux
 cd /to/target/directory
 
-wget https://github.com/energinsight/dataframework/tree/main/requirement.txt
+curl -o requirements.txt https://raw.githubusercontent.com/energinsight/dataframework/main/requirements.txt
 
 <!-- git clone https://github.com/energinsight/dataframework.git -->
 
@@ -19,7 +19,7 @@ python3 -m pip install -r requirement.txt
 ## Windows
 cd /to/target/directory
 
-curl -O https://github.com/energinsight/dataframework/tree/main/requirement.txt
+curl -o requirements.txt https://raw.githubusercontent.com/energinsight/dataframework/main/requirements.txt
 
 python -m venv venv
 
