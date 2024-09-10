@@ -49,6 +49,7 @@ setx ENTSOE_API_KEY "Your-API-Key"
 
 echo %ENTSOE_API_KEY%
 
+Repeat the same steps for other API keys that are required.
 
 ### Please restart the env.
 
@@ -56,6 +57,7 @@ echo %ENTSOE_API_KEY%
 import os
 
 api_key = os.getenv('ENTSOE_API_KEY')
+
 print(api_key)
 
 
