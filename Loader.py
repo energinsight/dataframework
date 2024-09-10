@@ -42,4 +42,3 @@ SpotPrice = DataFrame_sameloader(entsopr, ['DE_LU', 'FR', 'ES', 'NO_1'])
 entsoSchExchange.load_data(['FR','DE_LU'])
 
 
-a=2
