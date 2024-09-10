@@ -3,7 +3,7 @@
 ## Linux
 cd /to/target/directory
 
-git clone https://github.com/energinsight/intradayinsight.git
+git clone https://github.com/energinsight/dataframework.git
 
 python3 -m venv .venv
 
@@ -20,7 +20,7 @@ If you only want to install the dataframework package, then run "pip install git
 ## Windows
 cd /to/target/directory
 
-git clone https://github.com/energinsight/intradayinsight.git
+git clone https://github.com/energinsight/dataframework.git
 
 python -m venv venv
 
