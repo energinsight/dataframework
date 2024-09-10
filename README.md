@@ -31,7 +31,9 @@ pip install -r requirement.txt
 ## Download the sample script:
 curl -o Loader.py https://raw.githubusercontent.com/energinsight/dataframework/main/Loader.py
 
-## Note: the API keys need to be saved as env variables.
+## Note: the API keys
+
+If you are not going to use some sources, their API keys do not need to be added to the env variables.
 
 ### Linux:
 Add the following lines (with your API keys) to the end of .venv/bin/activate file:
