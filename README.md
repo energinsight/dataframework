@@ -4,6 +4,8 @@
 ## Linux
 cd /to/target/directory
 
+https://github.com/energinsight/dataframework
+
 <!-- git clone https://github.com/energinsight/dataframework.git -->
 
 Download the requirement.txt and put it in directory.
