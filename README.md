@@ -43,4 +43,22 @@ export netztransparenz_CLIENT_ID='Your-API-Key'
 export netztransparenz_Client_Secret='Your-API-Key'
 
 
+### Windows:
+
+setx ENTSOE_API_KEY "Your-API-Key"
+
+echo %ENTSOE_API_KEY%
+
+
+### Please restart the env.
+
+#### Test:
+import os
+
+api_key = os.getenv('ENTSOE_API_KEY')
+print(api_key)
+
+
+
+
 
