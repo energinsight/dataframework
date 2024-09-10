@@ -8,9 +8,20 @@ from dataframework.netztransparenz import *
 from dataframework.utils import DataFrame_sameloader, DataFrame_vl
 
 
+from dataframework.entsoeBalancing import *
+
+
+
 start = pd.Timestamp('2024-08-01 00:00:00', tz='Europe/Brussels')
 end = pd.Timestamp('2024-08-01 03:00:00', tz='Europe/Brussels')
 
+
+
+
+aa = Imbalance(start, end)
+bb = aa.load_data('10YCZ-CEPS-----N')
+
+shadowProbj = Jaocore_shadowprices(start, end)
 
 
 shadowProbj = Jaocore_shadowprices(start, end)
