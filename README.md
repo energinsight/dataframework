@@ -1,5 +1,8 @@
 # intsalation
 
+pip install git+https://github.com/energinsight/dataframework.git
+
+
 ## Linux
 cd /to/target/directory
 
