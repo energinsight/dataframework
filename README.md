@@ -1,6 +1,6 @@
-## intsalation
+# intsalation
 
-# Linux
+## Linux
 cd /to/target/directory
 
 git clone https://github.com/energinsight/intradayinsight.git
@@ -17,5 +17,9 @@ If you only want to install the dataframework package, then run "pip install git
 
 
 
-# Windows
+## Windows
 cd /to/target/directory
+
+python -m venv venv
+
+venv\Scripts\activate
