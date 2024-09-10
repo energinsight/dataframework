@@ -33,7 +33,7 @@ curl -o Loader.py https://raw.githubusercontent.com/energinsight/dataframework/m
 
 ## Note: the API keys
 
-If you are not going to use some sources, their API keys do not need to be added to the env variables.
+If you are not going to use some sources, their API keys do not need to be added to the env variables. For example, if you only want to read data from ENTSOe, you only need to add ENTSOE_API_KEY. 
 
 ### Linux:
 Add the following lines (with your API keys) to the end of .venv/bin/activate file:
