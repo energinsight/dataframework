@@ -14,10 +14,6 @@ source .venv/bin/activate
 
 python3 -m pip install -r requirement.txt
 
-Note: the API keys need to be saved as env variables.
-
-If you only want to install the dataframework package, then run "pip install git+https://github.com/energinsight/dataframework.git" in the activated env.
-
 
 
 ## Windows
@@ -28,3 +24,7 @@ curl -O https://github.com/energinsight/dataframework/tree/main/requirement.txt
 python -m venv venv
 
 venv\Scripts\activate
+
+
+## Note: the API keys need to be saved as env variables.
+
