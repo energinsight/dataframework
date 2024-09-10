@@ -4,7 +4,7 @@
 ## Linux
 cd /to/target/directory
 
-https://github.com/energinsight/dataframework
+wget https://github.com/energinsight/dataframework/tree/main/requirement.txt
 
 <!-- git clone https://github.com/energinsight/dataframework.git -->
 
