@@ -1,5 +1,9 @@
 # About dataframework
 
+dataframework facilitates loading data from different sources.
+
+Below is a sample:
+
 ![PTDF Plot](./newplot.png)
 
 ## Note:
