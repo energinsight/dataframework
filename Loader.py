@@ -11,12 +11,12 @@ from dataframework.entsoeBalancing import *
 from dataframework.entsoe_load import *
 
 
-start = pd.Timestamp('2024-09-11 00:00:00', tz='UTC')   # Europe/Brussels
-end = pd.Timestamp('2024-09-11 23:45:00', tz='UTC')
+start = pd.Timestamp('2024-09-13 02:00:00', tz='Europe/Brussels')   # 
+end = pd.Timestamp('2024-09-13 3:45:00', tz='Europe/Brussels')
 
 
 a = Total_DA_load(start, end)
-aa = a.load_data('10Y1001A1001A83F')
+aa = a.load_data('10Y1001A1001A82H', 'total load')
 
 
 
