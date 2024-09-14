@@ -15,22 +15,20 @@ class ENTSOELoad(DataLoader):
             raise ValueError("Missing environment variable: ENTSOE_API_KEY")
         self.api_key = api_key
         self.url = "https://web-api.tp.entsoe.eu/api"
-        self.documentType = {'total load': 'A65',
+        self.documentType = {'Total load': 'A65',
                              'Load forecast margin': 'A70'}
+        self.ProcessType = {'Day ahead': 'A01',
+                            'Realised': 'A16',
+                            'Week ahead': 'A31',
+                            'Month ahead': 'A32',
+                            'Year ahead': 'A33',}
                 
-    def load_data(self):
-        pass
-
-class Total_DA_load(ENTSOELoad):
-    def __init__(self, start, end):
-        super().__init__(start, end)
-
-    def load_data(self, area, documentType):
+    def load_data(self, area, documentType = 'total load', ProcessType = 'Realised'):
         url = self.url
         params = {
             'securityToken': self.api_key,
             'documentType': self.documentType[documentType],
-            'processType': 'A01',
+            'processType': self.ProcessType[ProcessType],
             'outBiddingZone_Domain': area,
             'periodStart': self.start.strftime('%Y%m%d%H%M'),
             'periodEnd': self.end.strftime('%Y%m%d%H%M')
