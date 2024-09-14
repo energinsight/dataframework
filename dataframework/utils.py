@@ -106,7 +106,8 @@ def parse_xml_to_dataframe(xml_content, namespaces):
     pivot_df = df.pivot(index='position', columns='series_mRID', values='quantity')
 
     # Optionally, fill missing values if necessary
-    pivot_df = pivot_df.fillna(0)
+    pivot_df = pivot_df.to_csv('pivot_df.csv')
+    #pivot_df.fillna(0)
 
     df.to_csv('df.csv')
     return df
