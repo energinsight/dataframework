@@ -15,7 +15,7 @@ class ENTSOEGeneration(DataLoader):
             raise ValueError("Missing environment variable: ENTSOE_API_KEY")
         self.api_key = api_key
         self.url = "https://web-api.tp.entsoe.eu/api"
-        self.documentType = {'Installed generation per type': 'A68',
+        '''self.documentType = {'Installed generation per type': 'A68',
                              'Reservoir filling information': 'A72',
                              'Actual generation per type': 'A75',
                              'Actual generation': 'A73',
@@ -25,7 +25,7 @@ class ENTSOEGeneration(DataLoader):
                             'Realised': 'A16',
                             'Week ahead': 'A31',
                             'Month ahead': 'A32',
-                            'Year ahead': 'A33',}
+                            'Year ahead': 'A33',}'''
                 
     def load_data(self, area, documentType = 'Actual generation', ProcessType = 'Realised', PsrType = None):
         url = self.url

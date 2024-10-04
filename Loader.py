@@ -16,6 +16,9 @@ end = pd.Timestamp('2024-09-14 3:00:00', tz='Europe/Brussels')
 
 
 a = ENTSOEGeneration(start, end)
+
+a.DocumentType
+
 aa = a.load_data('10Y1001A1001A82H', 'Generation forecast', 'Day ahead')
 
 # 10Y1001A1001A82H

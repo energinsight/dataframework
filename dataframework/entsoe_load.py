@@ -15,13 +15,13 @@ class ENTSOELoad(DataLoader):
             raise ValueError("Missing environment variable: ENTSOE_API_KEY")
         self.api_key = api_key
         self.url = "https://web-api.tp.entsoe.eu/api"
-        self.documentType = {'Total load': 'A65',
+        '''self.documentType = {'Total load': 'A65',
                              'Load forecast margin': 'A70'}
         self.ProcessType = {'Day ahead': 'A01',
                             'Realised': 'A16',
                             'Week ahead': 'A31',
                             'Month ahead': 'A32',
-                            'Year ahead': 'A33',}
+                            'Year ahead': 'A33',}'''
                 
     def load_data(self, area, documentType = 'total load', ProcessType = 'Realised'):
         url = self.url
