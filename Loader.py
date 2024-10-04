@@ -11,14 +11,14 @@ from dataframework.entsoeBalancing import *
 from dataframework.entsoe_generation import *
 
 
-start = pd.Timestamp('2024-09-14 00:00:00', tz='Europe/Brussels')   # 
-end = pd.Timestamp('2024-09-15 3:45:00', tz='Europe/Brussels')
+start = pd.Timestamp('2024-09-13 00:00:00', tz='Europe/Brussels')   # 
+end = pd.Timestamp('2024-09-14 3:00:00', tz='Europe/Brussels')
 
 
 a = ENTSOEGeneration(start, end)
-aa = a.load_data('10Y1001A1001A82H', 'Actual generation per type', 'Realised')
+aa = a.load_data('10Y1001A1001A82H', 'Generation forecast', 'Day ahead')
 
-
+# 10Y1001A1001A82H
 
 
 #aa = Imbalance(start, end)
