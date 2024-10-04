@@ -27,9 +27,9 @@ class ENTSOELoad(DataLoader):
         url = self.url
         params = {
             'securityToken': self.api_key,
-            'documentType': self.documentType[documentType],
+            'documentType': self.DocumentType[documentType],
             'processType': self.ProcessType[ProcessType],
-            'outBiddingZone_Domain': area,
+            'outBiddingZone_Domain': self.Areas[area],
             'periodStart': self.start.strftime('%Y%m%d%H%M'),
             'periodEnd': self.end.strftime('%Y%m%d%H%M')
         }

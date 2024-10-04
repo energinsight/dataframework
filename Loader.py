@@ -19,7 +19,7 @@ a = ENTSOEGeneration(start, end)
 
 a.DocumentType
 
-aa = a.load_data('10Y1001A1001A82H', 'Generation forecast', 'Day ahead')
+aa = a.load_data("BZN|DE-LU", 'Generation forecast', 'Day ahead')
 
 # 10Y1001A1001A82H
 
