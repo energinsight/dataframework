@@ -9,19 +9,23 @@ from dataframework.utils import DataFrame_sameloader, DataFrame_vl
 from dataframework.entsoeBalancing import *
 '''
 from dataframework.entsoe_generation import *
+from dataframework.entsoeBalancing import Energy as eng
 
 
 start = pd.Timestamp('2024-09-13 00:00:00', tz='Europe/Brussels')   # 
-end = pd.Timestamp('2024-09-14 3:00:00', tz='Europe/Brussels')
+end = pd.Timestamp('2024-10-05 3:00:00', tz='Europe/Brussels')
+
+
+bal = eng(start, end)
+
+ba = bal.load_data("SCA|DE(TransnetBW)", "Automatic frequency restoration reserve", "Bid document")
 
 
 a = ENTSOEGeneration(start, end)
 
-a.DocumentType
 
 aa = a.load_data("BZN|DE-LU", 'Generation forecast', 'Day ahead')
-
-# 10Y1001A1001A82H
+bb = a.load_data("BZN|FR", 'Generation forecast', 'Day ahead')
 
 
 #aa = Imbalance(start, end)

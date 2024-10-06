@@ -1,5 +1,6 @@
 from.loaderAPI import DataLoader
-from entsoe import EntsoePandasClient
+# from entsoe import EntsoePandasClient
+import requests
 import os
 import pandas as pd
 
@@ -10,7 +11,8 @@ class ENTSOEBalancingLoader(DataLoader):
         api_key = os.getenv('ENTSOE_API_KEY')
         if not api_key:
             raise ValueError("Missing environment variable: ENTSOE_API_KEY")
-        self.client = EntsoePandasClient(api_key=os.getenv('ENTSOE_API_KEY'))
+        self.api_key = api_key
+        self.url = "https://web-api.tp.entsoe.eu/api"
 
     def load_data(self, params):
         # Load data from ENTSOE
@@ -18,17 +20,20 @@ class ENTSOEBalancingLoader(DataLoader):
         #return data
 
 
-class Imbalance(ENTSOEBalancingLoader):
+class Energy(ENTSOEBalancingLoader):
     def __init__(self, start, end):
         super().__init__(start, end)
 
-    def load_data(self, MarketBalanceArea):
+    def load_data(self, MarketBalanceArea, processtype, documentType):
 
         params = {
-            'documentType':'A84',
-            'processtype':'A16',
-            'controlArea_Domain': MarketBalanceArea
+            'securityToken': self.api_key,
+            'documentType': self.DocumentType[documentType],
+            'processtype':self.ProcessType[processtype],
+            'area_Domain': self.Areas[MarketBalanceArea],
+            'periodStart': self.start.strftime('%Y%m%d%H%M'),
+            'periodEnd': self.end.strftime('%Y%m%d%H%M')
             }
-        response = self.client._base_request(params=params, start=self.start, end=self.end)
+        response = requests.get(self.url, params=params)
         print(response.text)        
         return response.text
