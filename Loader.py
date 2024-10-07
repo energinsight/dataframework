@@ -9,16 +9,16 @@ from dataframework.utils import DataFrame_sameloader, DataFrame_vl
 from dataframework.entsoeBalancing import *
 '''
 from dataframework.entsoe_generation import *
-from dataframework.entsoeBalancing import Energy as eng
+from dataframework.entsoeBalancing import BalancingEnergyBids as eng
 
 
-start = pd.Timestamp('2024-09-13 00:00:00', tz='Europe/Brussels')   # 
+start = pd.Timestamp('2024-10-05 2:00:00', tz='Europe/Brussels')   # 
 end = pd.Timestamp('2024-10-05 3:00:00', tz='Europe/Brussels')
 
 
 bal = eng(start, end)
 
-ba = bal.load_data("SCA|DE(TransnetBW)", "Automatic frequency restoration reserve", "Bid document")
+ba = bal.load_data("SCA|DE(Amprion)", "Automatic frequency restoration reserve", "Reserve bid document", "Offer")
 
 
 a = ENTSOEGeneration(start, end)
