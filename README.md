@@ -16,6 +16,7 @@ https://transparency.entsoe.eu/dashboard/show
 
 https://publicationtool.jao.eu/
 
+https://www.netztransparenz.de/en/
 
 
 # Installation
