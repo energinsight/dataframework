@@ -58,3 +58,24 @@ class BalancingEnergyBids(ENTSOEBalancingLoader):
         response = requests.get(self.url, params=params)
         print(response.text)        
         return response.text
+    
+
+
+class AggregatedBalancingEnergyBids(ENTSOEBalancingLoader):
+    def __init__(self, start, end):
+        super().__init__(start, end)
+
+    def load_data(self, Area_Domain, processtype, documentType):
+
+        params = {
+            'securityToken': self.api_key,
+            'documentType': self.DocumentType[documentType],
+            'processtype':self.ProcessType[processtype],
+            'Area_Domain': self.Areas[Area_Domain],
+            'periodStart': self.start.strftime('%Y%m%d%H%M'),
+            'periodEnd': self.end.strftime('%Y%m%d%H%M')
+            }
+        response = requests.get(self.url, params=params)
+        print(response.text)        
+        return response.text
+    
