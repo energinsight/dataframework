@@ -12,8 +12,8 @@ from dataframework.entsoe_generation import *
 from dataframework.entsoeBalancing import *
 
 
-start = pd.Timestamp('2019-10-01 0:00:00', tz='Europe/Brussels')   # 
-end = pd.Timestamp('2019-10-10 23:00:00', tz='Europe/Brussels')
+start = pd.Timestamp('2024-10-01 0:00:00', tz='Europe/Brussels')   # 
+end = pd.Timestamp('2024-10-10 23:00:00', tz='Europe/Brussels')
 
 
 #bal = BalancingEnergyBids(start, end)
@@ -21,7 +21,7 @@ end = pd.Timestamp('2019-10-10 23:00:00', tz='Europe/Brussels')
 #ba = bal.load_data("SCA|DE(TenneT GER)", "Automatic frequency restoration reserve", "Reserve bid document", "Offer")
 
 aggbalbid = AggregatedBalancingEnergyBids(start, end)
-aggbid = aggbalbid.load_data("SCA|CZ", "Automatic frequency restoration reserve", "Bid document")
+aggbid = aggbalbid.load_data("SCA|DE(TenneT GER)", "Automatic frequency restoration reserve", "Bid document")
 
 
 
