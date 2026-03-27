@@ -2,41 +2,48 @@ import pandas as pd
 from plotly import express as px
 '''
 from dataframework.entsoe import *
-from dataframework.jaoCore import *
 from dataframework.jaoCoreID import *
 from dataframework.netztransparenz import *
 from dataframework.utils import DataFrame_sameloader, DataFrame_vl
 from dataframework.entsoeBalancing import *
 '''
+from dataframework.entsoe import EntsoeSpotPrice
+from dataframework.jaoCore import *
+
 from dataframework.entsoe_generation import *
 from dataframework.entsoeBalancing import *
 
 
-start = pd.Timestamp('2024-10-01 0:00:00', tz='Europe/Brussels')   # 
-end = pd.Timestamp('2024-10-10 23:00:00', tz='Europe/Brussels')
+start = pd.Timestamp('2026-03-27 0:00:00', tz='Europe/Brussels')   # 
+end = pd.Timestamp('2026-03-27 23:59:00', tz='Europe/Brussels')
 
+shadowProbj = Jaocore_shadowprices(start, end)
+entsopr = EntsoeSpotPrice(start, end)
+
+activeConst = shadowProbj.load_data()
+y = entsopr.load_data('DE_LU')
 
 #bal = BalancingEnergyBids(start, end)
 
 #ba = bal.load_data("SCA|DE(TenneT GER)", "Automatic frequency restoration reserve", "Reserve bid document", "Offer")
 
-aggbalbid = AggregatedBalancingEnergyBids(start, end)
-aggbid = aggbalbid.load_data("SCA|DE(TenneT GER)", "Automatic frequency restoration reserve", "Bid document")
+#aggbalbid = AggregatedBalancingEnergyBids(start, end)
+#aggbid = aggbalbid.load_data("SCA|DE(TenneT GER)", "Automatic frequency restoration reserve", "Bid document")
 
 
 
 
-a = ENTSOEGeneration(start, end)
+#a = ENTSOEGeneration(start, end)
 
 
-aa = a.load_data("BZN|DE-LU", 'Generation forecast', 'Day ahead')
-bb = a.load_data("BZN|FR", 'Generation forecast', 'Day ahead')
+#aa = a.load_data("BZN|DE-LU", 'Generation forecast', 'Day ahead')
+#bb = a.load_data("BZN|FR", 'Generation forecast', 'Day ahead')
 
 
 #aa = Imbalance(start, end)
 #bb = aa.load_data('10YCZ-CEPS-----N')
 '''
-shadowProbj = Jaocore_shadowprices(start, end)
+
 
 
 shadowProbj = Jaocore_shadowprices(start, end)
@@ -50,7 +57,6 @@ reBAP1 = reBAP(start, end)
 reBAP1.load_data()
 
 
-entsopr = EntsoeSpotPrice(start, end)
 entsoLoad = EntsoeLoad(start, end)
 entsoLoadfcs = EntsoeLoadForecast(start, end)
 entsoGenfcs = EntsoeGenerationForecast(start, end)
